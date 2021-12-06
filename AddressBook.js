@@ -154,6 +154,11 @@ function deleteContact(firstName, lastName) {
     }
 }
 
+function countContacts(contactArray){
+    let count= contactArray.reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts is: "+count);
+ }
+
 try {
     addressBookArray.push(new Contact("Sachin", "Tendulkar", "Jayanagar", "Bangalore", "Karnataka", 560001, "91 9876543210", "sachin@gmail.com"));
 } catch (e) {
@@ -174,3 +179,4 @@ console.log(addressBookArray);
 
 deleteContact("Sachin", "Tendulkar");
 console.log(addressBookArray);
+countContacts(addressBookArray);
