@@ -159,6 +159,21 @@ function countContacts(contactArray){
     console.log("Number of contacts is: "+count);
  }
 
+ function addContact(addressBookArray,firstName,lastName){
+    if(addressBookArray.find((contact)=>(contact.firstName+" "+contact.lastName)==(firstName+" "+lastName))){   
+        console.log("Given contact already present in addressbook.");
+    }
+    else{
+        try{
+            addressBookArray.push(new Contact(firstName,lastName,'RTNagar','Bangalore','Karnataka',560002,'91 8521036987','sehwag@gmail.com'));
+            
+            console.log("Contact is added. ");
+        }catch(Exception){
+            console.log(Exception);
+        }
+        
+    }
+}
 try {
     addressBookArray.push(new Contact("Sachin", "Tendulkar", "Jayanagar", "Bangalore", "Karnataka", 560001, "91 9876543210", "sachin@gmail.com"));
 } catch (e) {
@@ -166,7 +181,7 @@ try {
 }
 
 try {
-    addressBookArray.push(new Contact("Mohammed", "Atif","RTnagar", "Bangalore", 'Karnataka', 560039, '91 9874563210', "abc@gmail.com"));
+    addressBookArray.push(new Contact("Amol", "Nagose","Bardi", "Nagpur", 'Maharastra', 123556, '91 1234567890', "abc@gmail.com"));
 } catch (e) {
     console.log(e);
 }
@@ -180,3 +195,5 @@ console.log(addressBookArray);
 deleteContact("Sachin", "Tendulkar");
 console.log(addressBookArray);
 countContacts(addressBookArray);
+addContact(addressBookArray,"Virender", "Sehwag");
+console.log(addressBookArray);
