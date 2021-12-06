@@ -184,6 +184,19 @@ function searchByCityOrState(contactArray,cityorstate){
         contactArray.filter(name => name.state == cityorstate).forEach(contact=>console.log(contact.toString()));
     }
 }
+
+function isPresentInState(contactArray,name,stateName){
+    console.log('View person contact by state');
+   let contact=contactArray.filter(a => a.state == stateName).find(b => b.firstName==name);
+   console.log(contact.toString());
+}
+
+function isPresentInCity(contactArray, name, cityName) {
+    console.log('View person contact by city');
+   let contact=contactArray.filter(a => a.city == cityName).find(b => b.firstName==name);
+   console.log(contact.toString());
+    
+}
 try {
     addressBookArray.push(new Contact("Sachin", "Tendulkar", "Jayanagar", "Bangalore", "Karnataka", 560001, "91 9876543210", "sachin@gmail.com"));
 } catch (e) {
@@ -191,13 +204,13 @@ try {
 }
 
 try {
-    addressBookArray.push(new Contact("Nagose", "Amol","Asbchd", "Nagpur", 'Maharastra', 456789, '91 1234567890', "abc@gmail.com"));
+    addressBookArray.push(new Contact("Amol", "Nagose","Anbcdjc", "Nagpur", 'Maharastra', 123456, '91 7894561230', "abc@gmail.com"));
 } catch (e) {
     console.log(e);
 }
 console.log(addressBookArray);
 console.log("\nAfter Editing Contact")
-editContact("Sachin", "Tendulkar", "city", "Mumbai");
+editContact("Rancho", "Ranchoddas", "city", "Mumbai");
 editContact("Sachin", "Tendulkar", "state", "Maharashtra");
 editContact("Sachin", "Tendulkar", "address", "Juhu");
 console.log(addressBookArray);
@@ -209,3 +222,5 @@ addContact(addressBookArray,"Virender", "Sehwag");
 console.log(addressBookArray);
 searchByCityOrState(addressBookArray,'Bangalore');
 searchByCityOrState(addressBookArray,'Karnataka');
+isPresentInState(addressBookArray,"Amol","Karnataka");
+isPresentInCity(addressBookArray,"Virender","Bangalore");
